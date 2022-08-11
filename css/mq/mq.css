@@ -1,0 +1,40 @@
+/* mobile only */
+
+@media (max-width: 1040px) {}
+
+/* SMAll */
+
+
+@media (max-width: 550px) {
+    .header-div{
+        width: 80%;
+    }
+
+    .main-nav {
+        /* display: none; */
+        position: fixed;
+        right: 0;
+        top: 100px;
+    }
+
+    .main-nav-list {
+        flex-direction: column;
+        background-color: var(--color1);
+    }
+
+    .main-nav-list li {
+        height: 100px;
+        width: 100px;
+        border-bottom: 1px solid black;
+    }
+
+    .burger{
+        display: block;
+    }
+}
+
+@media (min-width: 550px) {
+    .main-nav {
+        display: block;
+    }
+}

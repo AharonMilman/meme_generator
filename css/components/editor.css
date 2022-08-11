@@ -1,0 +1,23 @@
+.editor-container{
+    margin: 20px;
+}
+
+.editor-container-seperator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.canvas-container {
+    width: 60vw;
+    height: 60vh;
+}
+
+.editor-buttons-container{
+    background-color: brown;
+    margin-inline-start: 10px;
+    margin-block-start: 10px;
+    min-width: 300px;
+
+}

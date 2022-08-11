@@ -1,0 +1,3 @@
+.main-layout>*:not(.full) {
+    margin-bottom: 5rem;
+}

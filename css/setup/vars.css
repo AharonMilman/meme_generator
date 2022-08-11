@@ -1,0 +1,12 @@
+:root {
+    /* color palete */
+    --color1: #f48a10;
+    --color2: #ffffff;
+    --color3: #85c4eb;
+    --color4: #606060;
+    --color5: #818181;
+
+    --large: 1000px;
+    --medium: 850px;
+    --small: 600px;
+}

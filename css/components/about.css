@@ -1,0 +1,32 @@
+.about-modal-container {
+    position: fixed;
+    right: 0;
+    top: 100px;
+    height: 80vh;
+    width: 80vw;
+    background-color: rgba(255, 149, 0, 0.569);
+    font-size: 3em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
+.about-modal-container img{
+    height: 40vh;
+    width: 40vh;
+    border-radius: 50%;
+}
+
+.about-modal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;

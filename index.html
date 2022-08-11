@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img_ui/page_logo.png">
+    <link rel="stylesheet" href="css/main.css">
+    <title>MemeGen</title>
+</head>
+
+<body onload="onInitGame()">
+    <header class="main-header full">
+        <div class="header-div ">
+            <span class="logo upper-logo">memegen</span>
+            <nav class="main-nav">
+                <ul class="main-nav-list clean-list">
+                    <li onclick="onShowGallery()"><a href="#">Gallery</a></li>
+                    <li onclick="onShowMemes()"><a href="#">memes</a></li>
+                    <li onclick="onToggleActive('.about-modal-container')"><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <button class="burger" onclick="onToggleActive('.main-nav')">☰</button>
+    </header>
+
+    <main class="main-content">
+        <div class="gallery-container">
+
+            <form class="search-bar-container" onsubmit="onCancelRefresh(event)">
+                <input class="search-bar" type="text" name="searchByText" placeholder="Search..." oninput="" />
+                <!--onSetFilterBy({filterBySearch: this.value})-->
+            </form>
+            <div class="image-container">
+                <div class="grid-container">
+                    <!-- <img src="img_meme_square/1.jpg" alt="" onclick="onShowEditor(this)">
+                    <img src="img_meme_square/2.jpg" alt="">
+                    <img src="img_meme_square/3.jpg" alt="">
+                    <img src="img_meme_square/4.jpg" alt="">
+                    <img src="img_meme_square/5.jpg" alt="">
+                    <img src="img_meme_square/6.jpg" alt="">
+                    <img src="img_meme_square/7.jpg" alt="">
+                    <img src="img_meme_square/8.jpg" alt="">
+                    <img src="img_meme_square/9.jpg" alt="">
+                    <img src="img_meme_square/10.jpg" alt="">
+                    <img src="img_meme_square/11.jpg" alt="">
+                    <img src="img_meme_square/12.jpg" alt="">
+                    <img src="img_meme_square/13.jpg" alt="">
+                    <img src="img_meme_square/14.jpg" alt="">
+                    <img src="img_meme_square/15.jpg" alt="">
+                    <img src="img_meme_square/16.jpg" alt="">
+                    <img src="img_meme_square/17.jpg" alt="">
+                    <img src="img_meme_square/18.jpg" alt=""> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-container">
+            <div class="editor-container-seperator">
+                <div class="canvas-container">
+                    <canvas width="500" height="500" style="outline:1px solid green"></canvas>
+                </div>
+
+                <div class="editor-buttons-container">
+                    editor-buttons-container
+                    <form class="search-bar-container" onsubmit="onCancelRefresh(event)" >
+                        <input class="search-bar" type="text" name="searchByText" placeholder="Search..." oninput="onSetMemeText(this.value)" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="saved-memes-container">
+            <div class="grid-container">
+                <img src="img_meme_ar/2.jpg" alt="">
+                <img src="img_meme_ar/3.jpg" alt="">
+                <img src="img_meme_ar/4.jpg" alt="">
+                <img src="img_meme_ar/5.jpg" alt="">
+                <img src="img_meme_ar/6.jpg" alt="">
+                <img src="img_meme_ar/7.jpg" alt="">
+                <img src="img_meme_ar/8.jpg" alt="">
+                <img src="img_meme_ar/9.jpg" alt="">
+                <img src="img_meme_ar/10.jpg" alt="">
+                <img src="img_meme_ar/11.jpg" alt="">
+                <img src="img_meme_ar/12.jpg" alt="">
+                <img src="img_meme_ar/13.jpg" alt="">
+                <img src="img_meme_ar/14.jpg" alt="">
+                <img src="img_meme_ar/15.jpg" alt="">
+                <img src="img_meme_ar/16.jpg" alt="">
+                <img src="img_meme_ar/17.jpg" alt="">
+                <img src="img_meme_ar/18.jpg" alt="">
+            </div>
+        </div>
+
+    </main>
+
+    <div class="about-modal-container">
+        <div class="about-modal">
+            <span> Created by Jhon Doe!!</span>
+            <img src="img_ui/monkey.JPG" alt="">
+        </div>
+    </div>
+
+    <footer class="">
+        <span class="logo upper-logo">memegen</span>
+        <section>
+            © 2014 memegen.com - All Rights Reserved
+            <a href="#">aaaa</a>
+        </section>
+
+        <div class="logo-buttons">
+            <ul class="logo-buttons-list ">
+                <li class=""><a href="#">a1</a>
+                    <img src="#" alt="">
+                </li>
+                <li><a href="#">b2</a>
+                    <img src="#" alt="">
+                </li>
+                <li><a href="#">c3</a>
+                    <img src="#" alt="">
+                </li>
+                <li><a href="#">d4</a>
+                    <img src="#" alt="">
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+    <script src="js/listeners.controller.js"></script>
+    <script src="js/util.controller.js"></script>
+    <script src="js/main.controller.js"></script>
+
+</body>
+
+</html>
+
+C:\Users\milma\Desktop\NOT JUNK\Coding Academy\backup\meme_generator\js\meme.controller.js
