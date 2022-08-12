@@ -86,6 +86,15 @@
                             <input class="meme-text-bar" type="text" name="Text input" placeholder="Enter text"
                                 oninput="onSetMemeText(this.value)" />
                         </form>
+                        <div class="share-btns-container">
+                            <button class="save-btn" title="save Image to memes tab"
+                                onclick="onSaveMeme()">Save</button>
+                            <button class="download-btn" title="Download to device">
+                                <a href="#" onclick="onDownloadMeme(this)" download="">Download</a>
+                            </button>
+                            <button class="share-fb-btn" title="Share on Facebook" onclick="onShareFb()">Share on
+                                FB</button>
+                        </div>
                     </div>
 
 
@@ -94,8 +103,8 @@
         </section>
 
         <section class="saved-memes-container">
-            <div class="grid-container">
-                <img src="img_meme_ar/2.jpg" alt="">
+            <div class="saved-memes-grid">
+                <!-- <img src="img_meme_ar/2.jpg" alt="">
                 <img src="img_meme_ar/3.jpg" alt="">
                 <img src="img_meme_ar/4.jpg" alt="">
                 <img src="img_meme_ar/5.jpg" alt="">
@@ -111,7 +120,7 @@
                 <img src="img_meme_ar/15.jpg" alt="">
                 <img src="img_meme_ar/16.jpg" alt="">
                 <img src="img_meme_ar/17.jpg" alt="">
-                <img src="img_meme_ar/18.jpg" alt="">
+                <img src="img_meme_ar/18.jpg" alt=""> -->
             </div>
         </section>
     </main>
@@ -130,27 +139,12 @@
             <a href="#">Aharon Milman</a>
         </section>
 
-        <div class="logo-buttons">
-            <ul class="logo-buttons-list ">
-                <li class=""><a href="#">a1</a>
-                    <img src="#" alt="">
-                </li>
-                <li><a href="#">b2</a>
-                    <img src="#" alt="">
-                </li>
-                <li><a href="#">c3</a>
-                    <img src="#" alt="">
-                </li>
-                <li><a href="#">d4</a>
-                    <img src="#" alt="">
-                </li>
-            </ul>
-        </div>
     </footer>
 
     <script src="js/meme.service.js"></script>
     <script src="js/util.services.js"></script>
-    
+    <script src="js/storage.services.js"></script>
+
     <script src="js/meme.controller.js"></script>
     <script src="js/listeners.controller.js"></script>
     <script src="js/util.controller.js"></script>

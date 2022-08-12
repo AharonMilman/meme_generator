@@ -1,7 +1,7 @@
 'use strict'
 
+const SAVE_KEY = 'memeDb'
 const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-
 const gFunnyWords = ['I','you', 'love', 'me', 'cat', 'dog', 'war', 'what', 'are', 'true', 'everybody', 'expectation', 'reality', 'big', 'small']
 
 const gImgs = [
@@ -28,17 +28,20 @@ const gImgs = [
 const gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
+    isSaved: false,
+    imgSrc: '',
+    memeId: 0,
     lines: [
-        // {
-        //     txt: 'I sometimes eat Falafel',
-        //     font: 'david',
-        //     size: 50,
-        //     align: 'left',
-        //     fillColor: '#e41111',
-        //     strokeColor: 'yellow',
-        //     xPos: 250,
-        //     yPos: 250
-        // },
+        {
+            txt: 'I sometimes eat Falafel',
+            font: 'david',
+            size: 50,
+            align: 'center',
+            fillColor: '#e41111',
+            strokeColor: 'yellow',
+            xPos: 250,
+            yPos: 400
+        },
         {
             txt: 'I am Batman',
             font: 'impact',
@@ -52,13 +55,14 @@ const gMeme = {
     ]
 }
 
-const gMemes = []
-gMemes.push(gMeme)
+
+let gMemes = []
+
 
 let gSelectedMemeIdx = 0
 
-function getMeme(idx = 0) {
-    return gMemes[idx]
+function getMeme(id) {
+    return gMemes.find( meme  => meme.memeId === id)
 }
 
 function setLineTxt(txt) {
@@ -146,3 +150,20 @@ function addRandomMeme(){
     }
 }
 
+function saveMeme(){
+    console.log(onSaveMeme);
+    if(!gMeme.isSaved) {
+        gMeme.isSaved = true
+        gMeme.memeId = makeId()
+        gMemes.push(gMeme)
+    }
+    gMeme.imgSrc = gElCanvas.toDataURL()
+    saveToStorage(SAVE_KEY, gMemes)
+}
+
+function loadSavedMemes(){
+
+    if(loadFromStorage(SAVE_KEY)) gMemes = loadFromStorage(SAVE_KEY)
+    renderSavedMemes()
+    console.log(gMemes);
+}

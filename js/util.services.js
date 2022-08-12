@@ -20,8 +20,17 @@ function getRandomSentence(){
     let rndSentence = ''
     const rndWordArr = gFunnyWords.slice()
     for(let i=0; i <amountOfWords; i++ ){
-        const rndWord = rndWordArr.splice(getRandomIntInclusive(1, rndWordArr.length), 1)
+        const rndWord = rndWordArr.splice(getRandomIntInclusive(0, rndWordArr.length-1), 1)
         rndSentence = rndWord + ' ' + rndSentence
     }
-    return rndSentence
+    return rndSentence.toUpperCase()
+}
+
+function makeId(length = 3) {
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    var txt = ''
+    for (var i = 0; i < length; i++) {
+        txt += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
+    return txt
 }

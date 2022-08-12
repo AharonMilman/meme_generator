@@ -1,9 +1,8 @@
 'use strict'
 const IMG_PATH = 'img_meme_square/'
 
-function renderMeme(chosenMemeIdx = 0){
-    const meme = getMeme(chosenMemeIdx)
-    const id = meme.selectedImgId
+function renderMeme() {
+    const id = gMeme.selectedImgId
 
     const img = new Image()
     const selectedImg = gImgs.find(item => item.id === id)
@@ -11,12 +10,12 @@ function renderMeme(chosenMemeIdx = 0){
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height) //img,x,y,xend,yend
         const oldLineIdx = gMeme.selectedLineIdx // in order to have the focus on the same line
-        for(let i=0; i< meme.lines.length; i++) {
+        for (let i = 0; i < gMeme.lines.length; i++) {
             gMeme.selectedLineIdx = i
             drawText()
         }
         gMeme.selectedLineIdx = oldLineIdx
-    }  
+    }
 }
 
 function drawText(txt = 'hi', x = 100, y = 100) {
@@ -52,27 +51,55 @@ function onAlignChange(direction) {
     renderMeme()
 }
 
-function onChangeTextSize(amount){
+function onChangeTextSize(amount) {
     changeTextSize(amount)
     renderMeme()
 }
 
-function onMoveLine(amount){
+function onMoveLine(amount) {
     moveLine(amount)
     renderMeme()
 }
 
-function onRemoveLine(){
+function onRemoveLine() {
     removeLine()
     renderMeme()
 }
 
-function onAddLine(){
+function onAddLine() {
     addLine()
     renderMeme()
 }
 
-function onSwitchLineFocus(){
+function onSwitchLineFocus() {
     switchLineFocus()
     renderMeme()
 }
+
+function onSaveMeme() {
+    saveMeme()
+}
+
+function onDownloadMeme(elLink) {
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'my-image.jpg'
+}
+
+function onShareFb() {
+    console.log(onShareFb);
+}
+
+function renderSavedMemes() {
+    let strHTMLs = []
+    if (gMemes) {
+        strHTMLs = gMemes.map(meme =>
+            `
+        <img src="${meme.imgSrc}" alt="" onclick="onShowEditorSavedMeme(${meme.memeId})">
+        `
+        )
+        const strHTML = strHTMLs.join('')
+        const elGrid = document.querySelector('.saved-memes-grid')
+        elGrid.innerHTML = strHTML
+    }
+} 

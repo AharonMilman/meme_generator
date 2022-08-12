@@ -5,6 +5,7 @@ var gCtx
 
 function onInitGame(){
     setSite()
+    loadSavedMemes()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
     renderImgs()
@@ -58,6 +59,14 @@ function onShowEditor(id){
     setImg(id)
 }
 
+function onShowEditorSavedMeme(memeId){
+    showElement('.editor-container')
+    hideElement('.gallery-container')
+    hideElement('.saved-memes-container')
+    gMeme = getMeme(memeId)
+    renderMeme
+}
+
 function renderImgs(){
     let strHTMLs= []
     strHTMLs = gImgs.map(img => 
@@ -74,3 +83,4 @@ function onAddRandomMeme(){
     addRandomMeme()
     onShowEditor(gMeme.selectedImgId)
 }
+
