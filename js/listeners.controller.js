@@ -11,14 +11,12 @@ function addListeners() {
 }
 
 function addMouseListeners() {
-    console.log('addMouseListeners');
     // gElCanvas.addEventListener('mousemove', onMove)
     // gElCanvas.addEventListener('mousedown', onDown)
     // gElCanvas.addEventListener('mouseup', onUp)
 }
 
 function addTouchListeners() {
-    console.log('addTouchListeners');
     // gElCanvas.addEventListener('touchmove', onMove)
     // gElCanvas.addEventListener('touchstart', onDown)
     // gElCanvas.addEventListener('touchend', onUp)

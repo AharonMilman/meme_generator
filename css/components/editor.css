@@ -15,9 +15,39 @@
 }
 
 .editor-buttons-container{
-    background-color: brown;
+    background-color: white;
     margin-inline-start: 10px;
     margin-block-start: 10px;
     min-width: 300px;
 
+}
+
+.editor-buttons-container button{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: none;
+	background-color: transparent;
+    font-size: 1.2em;
+}
+
+.editor-buttons-container button:hover{
+    color: var(--color3);
+    cursor: pointer;
+}
+
+.line-btns input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.meme-text-bar{
+    height: 40px;
+    width: 300px;
+    font-size: 1.5em
 }

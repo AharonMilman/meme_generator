@@ -1,9 +1,13 @@
-.search-bar-container{
+.secondary-nav{
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     box-shadow: inset 0px -5px;
+}
+
+.search-bar-container{
+    margin-inline-end: 20px;
 }
 
 .search-bar{
@@ -34,3 +38,15 @@ img:hover{
     cursor: pointer;
 }
 
+.i-am-flex-btn{
+    height: 30px;
+    min-width: 100px;
+    color: var(--color2);
+    font-family: lato;
+    font-size: 1.2em;
+    background-color: var(--color1);
+}
+
+.i-am-flex-btn:hover{
+    color: var(--color3);
+}

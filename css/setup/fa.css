@@ -1,0 +1,43 @@
+.font-awesome {
+	font-family: fa;
+}
+
+.remove-line-btn::before {
+	content: '\f2ed';
+}
+
+.add-line-btn::before {
+	content: '\2b';
+}
+
+.move-up-btn::before {
+	content: '\f062';
+}
+
+.move-down-btn::before {
+	content: '\f063';
+}
+
+.align-left-btn::before {
+	content: '\f036';
+}
+
+.align-center-btn::before {
+	content: '\f037';
+}
+
+.align-right-btn::before {
+	content: '\f038';
+}
+
+.color-btn::before {
+	content: '\f53f';
+}
+
+.stroke-btn::before {
+	content: '\f1fc';
+}
+
+.switch-lines-btn::before {
+	content: '\f363';
+}

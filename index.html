@@ -26,52 +26,74 @@
     </header>
 
     <main class="main-content">
-        <div class="gallery-container">
-
-            <form class="search-bar-container" onsubmit="onCancelRefresh(event)">
-                <input class="search-bar" type="text" name="searchByText" placeholder="Search..." oninput="" />
-                <!--onSetFilterBy({filterBySearch: this.value})-->
-            </form>
+        <section class="gallery-container">
+            <nav class="secondary-nav">
+                <form class="search-bar-container" onsubmit="onCancelRefresh(event)">
+                    <input class="search-bar" type="text" name="searchByText" placeholder="Search..." oninput="" />
+                </form>
+                <button class="i-am-flex-btn " onclick="onAddRandomMeme()" title="Random meme">I'm flexible</button>
+            </nav>
             <div class="image-container">
                 <div class="grid-container">
-                    <!-- <img src="img_meme_square/1.jpg" alt="" onclick="onShowEditor(this)">
-                    <img src="img_meme_square/2.jpg" alt="">
-                    <img src="img_meme_square/3.jpg" alt="">
-                    <img src="img_meme_square/4.jpg" alt="">
-                    <img src="img_meme_square/5.jpg" alt="">
-                    <img src="img_meme_square/6.jpg" alt="">
-                    <img src="img_meme_square/7.jpg" alt="">
-                    <img src="img_meme_square/8.jpg" alt="">
-                    <img src="img_meme_square/9.jpg" alt="">
-                    <img src="img_meme_square/10.jpg" alt="">
-                    <img src="img_meme_square/11.jpg" alt="">
-                    <img src="img_meme_square/12.jpg" alt="">
-                    <img src="img_meme_square/13.jpg" alt="">
-                    <img src="img_meme_square/14.jpg" alt="">
-                    <img src="img_meme_square/15.jpg" alt="">
-                    <img src="img_meme_square/16.jpg" alt="">
-                    <img src="img_meme_square/17.jpg" alt="">
-                    <img src="img_meme_square/18.jpg" alt=""> -->
+                    Here goes the Imgs strig
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="editor-container">
+        <section class="editor-container">
             <div class="editor-container-seperator">
                 <div class="canvas-container">
                     <canvas width="500" height="500" style="outline:1px solid green"></canvas>
                 </div>
 
                 <div class="editor-buttons-container">
-                    editor-buttons-container
-                    <form class="search-bar-container" onsubmit="onCancelRefresh(event)" >
-                        <input class="search-bar" type="text" name="searchByText" placeholder="Search..." oninput="onSetMemeText(this.value)" />
-                    </form>
+                    <div class="lines-control-main flex space-between align-center">
+                        <div class="lines-control-btns">
+                            <button class="switch-lines-btn font-awesome" onclick="onSwitchLineFocus()"
+                                title="Switch lines"></button>
+                            <button class="add-line-btn font-awesome" onclick="onAddLine()" title="Add line"></button>
+                            <button class="remove-line-btn font-awesome" onclick="onRemoveLine()"
+                                title="Delete line"></button>
+                        </div>
+                    </div>
+
+                    <div class="editor-operations">
+                        <div class="line-btns flex justify-center align-center">
+                            <button class="move-up-btn font-awesome" title="Move up" onclick="onMoveLine(-25)"></button>
+                            <button class="move-down-btn font-awesome" title="Move Down"
+                                onclick="onMoveLine(25)"></button>
+                            <span>|</span>
+                            <button class="decrease-size font-awesome" title="Increse size"
+                                onclick="onChangeTextSize(3)">A+</button>
+                            <button class="decrease-size font-awesome" title="Decrease size"
+                                onclick="onChangeTextSize(-3)">A-</button>
+                            <span>|</span>
+                            <button class="align-left-btn font-awesome" title="Align left"
+                                onclick="onAlignChange('left')"></button>
+                            <button class="align-center-btn font-awesome" title="Align center"
+                                onclick="onAlignChange('center')"></button>
+                            <button class="align-right-btn font-awesome" title="Align right"
+                                onclick="onAlignChange('right')"></button>
+                            <span>|</span>
+                            <button class="color-btn font-awesome" title="Text fill color">
+                                <input type="color" name="text-color" oninput="onChangeFillColor(this.value)" />
+                            </button>
+                            <button class="stroke-btn font-awesome" title="Stroke color">
+                                <input type="color" name="text-color" oninput="onChangeStrokeColor(this.value)" />
+                            </button>
+                        </div>
+                        <form class="meme-text-bar-container" onsubmit="onCancelRefresh(event)">
+                            <input class="meme-text-bar" type="text" name="Text input" placeholder="Enter text"
+                                oninput="onSetMemeText(this.value)" />
+                        </form>
+                    </div>
+
+
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="saved-memes-container">
+        <section class="saved-memes-container">
             <div class="grid-container">
                 <img src="img_meme_ar/2.jpg" alt="">
                 <img src="img_meme_ar/3.jpg" alt="">
@@ -91,8 +113,7 @@
                 <img src="img_meme_ar/17.jpg" alt="">
                 <img src="img_meme_ar/18.jpg" alt="">
             </div>
-        </div>
-
+        </section>
     </main>
 
     <div class="about-modal-container">
@@ -106,7 +127,7 @@
         <span class="logo upper-logo">memegen</span>
         <section>
             © 2014 memegen.com - All Rights Reserved
-            <a href="#">aaaa</a>
+            <a href="#">Aharon Milman</a>
         </section>
 
         <div class="logo-buttons">
@@ -128,6 +149,8 @@
     </footer>
 
     <script src="js/meme.service.js"></script>
+    <script src="js/util.services.js"></script>
+    
     <script src="js/meme.controller.js"></script>
     <script src="js/listeners.controller.js"></script>
     <script src="js/util.controller.js"></script>
@@ -136,5 +159,3 @@
 </body>
 
 </html>
-
-C:\Users\milma\Desktop\NOT JUNK\Coding Academy\backup\meme_generator\js\meme.controller.js

@@ -16,7 +16,6 @@ function hideElement(el){
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
-    console.log('w', elContainer.offsetWidth , 'H',elContainer.offsetHeight );
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }

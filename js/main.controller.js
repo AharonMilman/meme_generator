@@ -28,9 +28,7 @@ function renderCanvas() {
 }
 
 function onSetMemeText(txt){
-    gMeme.lines[0].txt = txt
-    console.log(txt)
-    renderMeme()
+    setLineTxt(txt)
 }
 
 function onToggleActive(el) {
@@ -54,12 +52,10 @@ function onShowGallery(){
 }
 
 function onShowEditor(id){
-    console.log('Editor');
     showElement('.editor-container')
     hideElement('.gallery-container')
     hideElement('.saved-memes-container')
-    gMeme.selectedImgId = id
-    renderCanvas()
+    setImg(id)
 }
 
 function renderImgs(){
@@ -74,3 +70,7 @@ function renderImgs(){
     elGrid.innerHTML = strHTML
 } 
 
+function onAddRandomMeme(){
+    addRandomMeme()
+    onShowEditor(gMeme.selectedImgId)
+}
