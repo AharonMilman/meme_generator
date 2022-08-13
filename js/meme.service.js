@@ -3,6 +3,7 @@
 const SAVE_KEY = 'memeDb'
 const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 const gFunnyWords = ['I', 'you', 'love', 'me', 'cat', 'dog', 'one', 'what', 'are', 'true', 'everybody', 'expectation', 'reality', 'big', 'small', 'water', 'world']
+const gDataList = []
 
 const gImgs = [
     { id: 1, fileName: '1.jpg', keywords: ['trump', 'politics'] },
@@ -189,3 +190,17 @@ function createNewMeme() {
 
 }
 
+function setSearchParam(txtSearch){
+    console.log(txtSearch);
+    gFltrImgs = gImgs.filter( img => img.keywords.some(word => word === txtSearch ))
+    console.log(gFltrImgs)
+}
+
+function buildDataList(){
+    gImgs.forEach(img => {
+        img.keywords.forEach(word => {
+            let currWord = word
+            if (!gDataList.some( listWord => listWord === currWord)) gDataList.push(currWord)
+        })
+    })
+}

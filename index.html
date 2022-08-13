@@ -11,6 +11,9 @@
 </head>
 
 <body onload="onInitGame()">
+
+    <div class="hidden-screen hide" onclick="onToggleAboutModal()"></div>
+
     <header class="main-header full">
         <div class="header-div ">
             <span class="logo upper-logo">memegen</span>
@@ -18,7 +21,7 @@
                 <ul class="main-nav-list clean-list">
                     <li onclick="onShowGallery()"><a href="#">Gallery</a></li>
                     <li onclick="onShowMemes()"><a href="#">memes</a></li>
-                    <li onclick="onToggleActive('.about-modal-container')"><a href="#">About</a></li>
+                    <li onclick="onToggleAboutModal()"><a href="#">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -29,9 +32,17 @@
         <section class="gallery-container">
             <nav class="secondary-nav">
                 <form class="search-bar-container" onsubmit="onCancelRefresh(event)">
-                    <input class="search-bar" type="text" name="searchByText" placeholder="Search..." oninput="" />
+                    <input class="search-bar" type="text" list="search-bar-list" name="searchByText"
+                        placeholder="Search..." oninput="onSetSearchParam(this.value)" />
                 </form>
                 <button class="i-am-flex-btn " onclick="onAddRandomMeme()" title="Random meme">I'm flexible</button>
+                <datalist id="search-bar-list" class="">
+                    <option value="Chocolate">
+                    <option value="Coconut">
+                    <option value="Mint">
+                    <option value="Strawberry">
+                    <option value="Vanilla">
+                </datalist>
             </nav>
             <div class="image-container">
                 <div class="grid-container">

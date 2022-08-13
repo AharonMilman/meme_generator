@@ -7,6 +7,9 @@ function addListeners() {
     addTouchListeners()
     window.addEventListener('resize', () => {
         resizeCanvas()
+        // let gViewportWidth = window.innerWidth
+        // console.log(gViewportWidth);
+        // if(gViewportWidth = 550) onToggleActive('.main-nav')  
     })
 }
 

@@ -17,16 +17,17 @@
 }
 
 .about-modal{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-
-display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.hidden-screen{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.39);
+}

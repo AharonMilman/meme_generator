@@ -4,14 +4,17 @@
 
 .editor-container-seperator{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .canvas-container {
-    width: 50vw;
-    height: 50vh;
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    min-height: 300px;
+    /* height: 50vh; */
 }
 
 .editor-buttons-container{
