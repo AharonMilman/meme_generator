@@ -16,7 +16,14 @@ function hideElement(el){
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
+    if(elContainer.offsetWidth < elContainer.offsetHeight ) {
+        gElCanvas.width = gElCanvas.height = elContainer.offsetWidth
+    }
+    else{
+        gElCanvas.height = gElCanvas.width = elContainer.offsetHeight
+    }
+    // gElCanvas.width = elContainer.offsetWidth
+    // gElCanvas.height = elContainer.offsetHeight
+    renderMeme()
 }
 

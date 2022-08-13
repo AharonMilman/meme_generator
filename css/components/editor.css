@@ -10,8 +10,8 @@
 }
 
 .canvas-container {
-    width: 60vw;
-    height: 60vh;
+    width: 50vw;
+    height: 50vh;
 }
 
 .editor-buttons-container{
@@ -31,7 +31,9 @@
     font-size: 1.2em;
 }
 
-.editor-buttons-container button:hover{
+.editor-buttons-container button:hover,
+.editor-buttons-container a:hover
+{
     color: var(--color3);
     cursor: pointer;
 }
@@ -63,4 +65,10 @@
     height: 50px;
     width: 100px;
     border-radius: 10px;
+    font-family: lato;
+}
+
+.editor-buttons-container a{
+    color: black;
+    text-decoration: none;
 }

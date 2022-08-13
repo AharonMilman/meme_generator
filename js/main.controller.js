@@ -23,11 +23,6 @@ function onCancelRefresh(event){
     event.preventDefault()
 }
 
-function renderCanvas() {
-    resizeCanvas()
-    renderMeme()
-}
-
 function onSetMemeText(txt){
     setLineTxt(txt)
 }
@@ -52,11 +47,17 @@ function onShowGallery(){
     hideElement('.editor-container')
 }
 
-function onShowEditor(id){
+function onShowEditorNewPic(id){
     showElement('.editor-container')
     hideElement('.gallery-container')
     hideElement('.saved-memes-container')
     setImg(id)
+}
+
+function showEditor(){
+    showElement('.editor-container')
+    hideElement('.gallery-container')
+    hideElement('.saved-memes-container')
 }
 
 function onShowEditorSavedMeme(memeId){
@@ -64,14 +65,14 @@ function onShowEditorSavedMeme(memeId){
     hideElement('.gallery-container')
     hideElement('.saved-memes-container')
     gMeme = getMeme(memeId)
-    renderMeme
+    renderMeme()
 }
 
 function renderImgs(){
     let strHTMLs= []
     strHTMLs = gImgs.map(img => 
         `
-        <img src="img_meme_square/${img.fileName}" alt="" onclick="onShowEditor(${img.id})">
+        <img src="img_meme_square/${img.fileName}" alt="" onclick="onShowEditorNewPic(${img.id})">
         `
     )
     const strHTML = strHTMLs.join('')    
@@ -81,6 +82,7 @@ function renderImgs(){
 
 function onAddRandomMeme(){
     addRandomMeme()
-    onShowEditor(gMeme.selectedImgId)
+    showEditor()
+    renderMeme()
 }
 

@@ -16,6 +16,8 @@ function renderMeme() {
         }
         gMeme.selectedLineIdx = oldLineIdx
     }
+    const lineContent = gMeme.lines[gMeme.selectedLineIdx].txt
+    document.querySelector('.meme-text-bar').value = lineContent // insert the line content into the HTML text box
 }
 
 function drawText(txt = 'hi', x = 100, y = 100) {
@@ -27,7 +29,7 @@ function drawText(txt = 'hi', x = 100, y = 100) {
     y = gMeme.lines[gMeme.selectedLineIdx].yPos
     gCtx.textBaseline = 'middle'
     gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
-    gCtx.lineWidth = 0.7
+    gCtx.lineWidth = 1.5
     gCtx.font = `${fontSize}px ${fontType}`
     gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].fillColor
     gCtx.fillText(txt, x, y)
@@ -95,7 +97,7 @@ function renderSavedMemes() {
     if (gMemes) {
         strHTMLs = gMemes.map(meme =>
             `
-        <img src="${meme.imgSrc}" alt="" onclick="onShowEditorSavedMeme(${meme.memeId})">
+        <img src="${meme.imgSrc}" alt="" onclick="onShowEditorSavedMeme('${meme.memeId}')">
         `
         )
         const strHTML = strHTMLs.join('')

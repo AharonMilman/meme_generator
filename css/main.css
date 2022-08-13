@@ -7,6 +7,7 @@
 @import "basic/base.css";
 @import "basic/layout.css";
 
+@import "components/memes.css";
 @import "components/header.css";
 @import "components/footer.css";
 @import "components/logo.css";

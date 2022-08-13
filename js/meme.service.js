@@ -2,7 +2,7 @@
 
 const SAVE_KEY = 'memeDb'
 const gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-const gFunnyWords = ['I','you', 'love', 'me', 'cat', 'dog', 'war', 'what', 'are', 'true', 'everybody', 'expectation', 'reality', 'big', 'small']
+const gFunnyWords = ['I', 'you', 'love', 'me', 'cat', 'dog', 'one', 'what', 'are', 'true', 'everybody', 'expectation', 'reality', 'big', 'small', 'water', 'world']
 
 const gImgs = [
     { id: 1, fileName: '1.jpg', keywords: ['trump', 'politics'] },
@@ -25,7 +25,7 @@ const gImgs = [
     { id: 18, fileName: '18.jpg', keywords: ['toystory'] },
 ]
 
-const gMeme = {
+let gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     isSaved: false,
@@ -33,22 +33,22 @@ const gMeme = {
     memeId: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
-            font: 'david',
-            size: 50,
-            align: 'center',
-            fillColor: '#e41111',
-            strokeColor: 'yellow',
-            xPos: 250,
-            yPos: 400
-        },
-        {
-            txt: 'I am Batman',
+            txt: 'UPPER LINE',
             font: 'impact',
             size: 60,
             align: 'center',
             fillColor: 'black',
-            strokeColor: 'yellow',
+            strokeColor: 'white',
+            xPos: 250,
+            yPos: 400
+        },
+        {
+            txt: 'BOTTOM LINE',
+            font: 'impact',
+            size: 60,
+            align: 'center',
+            fillColor: 'black',
+            strokeColor: 'white',
             xPos: 250,
             yPos: 100
         }
@@ -62,87 +62,90 @@ let gMemes = []
 let gSelectedMemeIdx = 0
 
 function getMeme(id) {
-    return gMemes.find( meme  => meme.memeId === id)
+    console.log('im here');
+    return gMemes.find(meme => meme.memeId === id)
 }
 
 function setLineTxt(txt) {
-    gMeme.lines[0].txt = txt
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
     console.log(txt)
     renderMeme()
 }
 
 function setImg(id) {
+    createNewMeme()
     gMeme.selectedImgId = id
-    renderCanvas()
+    renderMeme()
 }
 
 function changeStrokeColor(color) {
-    const meme = getMeme(gSelectedMemeIdx)
+    const meme = gMeme
     meme.lines[meme.selectedLineIdx].strokeColor = color
 }
 
 function changeFillColor(color) {
-    const meme = getMeme(gSelectedMemeIdx)
+    const meme = gMeme
     meme.lines[meme.selectedLineIdx].fillColor = color
 }
 
 function alignChange(direction) {
-    const meme = getMeme(gSelectedMemeIdx)
+    const meme = gMeme
     meme.lines[meme.selectedLineIdx].align = direction
 }
 
 function changeTextSize(amount) {
-    const meme = getMeme(gSelectedMemeIdx)
+    const meme = gMeme
     meme.lines[meme.selectedLineIdx].size += amount
 }
 
 function moveLine(amount) {
-    const meme = getMeme(gSelectedMemeIdx)
+    const meme = gMeme
     meme.lines[meme.selectedLineIdx].yPos += amount
 }
 
 function removeLine() {
-    const meme = getMeme(gSelectedMemeIdx)
+    const meme = gMeme
     const linesAmount = meme.lines.length
-    if(meme.selectedLineIdx + 1 === linesAmount) meme.selectedLineIdx--
+    if (meme.selectedLineIdx + 1 === linesAmount) meme.selectedLineIdx--
     meme.lines.splice(meme.selectedLineIdx, 1)
 
 }
 
-function addLine() {
-    const meme = getMeme(gSelectedMemeIdx)
+function addLine(txt = 'Enter text :) ') {
+    const meme = gMeme
     const line =
     {
-        txt: 'Enter text :) ',
-        font: 'david',
-        size: 40,
+        txt,
+        font: 'impact',
+        size: 60,
         align: 'center',
-        fillColor: 'red',
-        strokeColor: 'yellow',
-        xPos: 300,
-        yPos: 250
+        fillColor: 'black',
+        strokeColor: 'white',
+        xPos: gElCanvas.width / 2,
+        yPos: gElCanvas.height / 2
     }
     meme.selectedLineIdx = meme.lines.length // when I add a line I want the focus to be on it
     meme.lines.push(line)
 }
 
-function switchLineFocus(){
-    const meme = getMeme(gSelectedMemeIdx)
+function switchLineFocus() {
+    const meme = gMeme
     const linesAmount = meme.lines.length
-    if(meme.selectedLineIdx + 1 === linesAmount) meme.selectedLineIdx = 0
+    if (meme.selectedLineIdx + 1 === linesAmount) meme.selectedLineIdx = 0
     else meme.selectedLineIdx++
 }
 
-function addRandomMeme(){
+function addRandomMeme() {
+    createNewMeme()
     gMeme.selectedImgId = getRandomIntInclusive(1, gImgs.length)
-    
+
     const amountOfLines = getRandomIntInclusive(1, 2)
     gMeme.lines = []
-    for (let i=0 ; i < amountOfLines ; i++){
+    for (let i = 0; i < amountOfLines; i++) {
         addLine()
-        if(i === 0) gMeme.lines[i].yPos = 100
+        if (i === 0) gMeme.lines[i].yPos = 100
         else gMeme.lines[i].yPos = 400
-    
+
         gMeme.lines[i].txt = getRandomSentence()
         gMeme.lines[i].size = getRandomIntInclusive(30, 60)
         gMeme.lines[i].fillColor = getRandomColor()
@@ -150,20 +153,39 @@ function addRandomMeme(){
     }
 }
 
-function saveMeme(){
-    console.log(onSaveMeme);
-    if(!gMeme.isSaved) {
+function saveMeme() {
+
+    if (!gMeme.isSaved) {
         gMeme.isSaved = true
         gMeme.memeId = makeId()
         gMemes.push(gMeme)
     }
     gMeme.imgSrc = gElCanvas.toDataURL()
     saveToStorage(SAVE_KEY, gMemes)
-}
-
-function loadSavedMemes(){
-
-    if(loadFromStorage(SAVE_KEY)) gMemes = loadFromStorage(SAVE_KEY)
     renderSavedMemes()
-    console.log(gMemes);
 }
+
+function loadSavedMemes() {
+
+    if (loadFromStorage(SAVE_KEY)) {
+        gMemes = loadFromStorage(SAVE_KEY)
+        renderSavedMemes()
+    }
+}
+
+function createNewMeme() {
+    gMeme = {
+        selectedImgId: null,
+        selectedLineIdx: 0,
+        isSaved: false,
+        imgSrc: '',
+        memeId: null,
+        lines: [],
+    }
+    addLine('UPPER LINE')
+    gMeme.lines[0].yPos = gElCanvas.height / 2 - gElCanvas.height / 2.5
+    addLine('BOTTOM LINE')
+    gMeme.lines[1].yPos = gElCanvas.height / 2 + gElCanvas.height / 2.5
+
+}
+
